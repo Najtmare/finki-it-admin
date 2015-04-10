@@ -2,7 +2,7 @@
 
 ##Content
 - [Installing ArchLinux](#installing-archlinux)
-- Vagrant usage
+- [Vagrant usage](#vagrant-usage)
 
 ###<a id="installing-archlinux"></a>Installing ArchLinux
 
@@ -74,3 +74,25 @@ Exit from **chroot**, umount the *root* and reboot.
 	exit
 	umount -R /mnt
 	reboot
+
+###<a id="vagrant-usage"></a>Vagrant usage
+
+First, you need to create **Vagrantfile** which will be the configuration file of the *Vagrant box* you are going to create.
+
+	vagrant init
+
+This command will create the **Vagrantfile_base** which we need to customize (the file will be created in the folder we are currently in)
+
+Than, you can create the *Vagrant box* from any VM software you have installed on the computer. In command prompt (under Windows hosts), locate your self in the folder you want to have the box created (preferably the folder where you have created the **Vagrantfile**) and run the command below.
+
+	vagrant package --base VM_NAME --output VMBoxName.box
+
+With **--base** you specify the VM you want to create as **Vagrant box** and the **--output** specifies the *box* name.
+
+After the box is created, you need to configure the **Vagrantfile** so it matches the proper **Vagrant box** name, configure RAM usage when deploying the box on new host, maybe set static IP addresses, SSH credentials and so on (check **Vagrantfile_configured**).
+
+Last step is to deploy the **Vagrant box**.
+
+	vagrant up
+
+This will start deploying the VM from the box with the specifications given in the **Vagrantfile_configured**.
