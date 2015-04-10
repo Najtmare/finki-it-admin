@@ -96,3 +96,5 @@ Last step is to deploy the **Vagrant box**.
 	vagrant up
 
 This will start deploying the VM from the box with the specifications given in the **Vagrantfile_configured**.
+
+###TODO: Deploy **Vagrantfile** base and configured.
